@@ -11,12 +11,17 @@ package lab3_rodrigovelasquez_ricardogonzalez;
  */
 public class EVA00 extends EVA {
     
-    public void Movimiento() {
-
+    public boolean Movimiento(int posx, int posy, int movx, int movy) {
+        if ((movx == posx -1 || movx == posx +1)) {
+            if (movy == posy -1 || movy == posy +1) {
+                return true;
+            }
+        }
+        return false;
     }
     
     @Override
     public void Atacar() {
-
+        
     }
 }

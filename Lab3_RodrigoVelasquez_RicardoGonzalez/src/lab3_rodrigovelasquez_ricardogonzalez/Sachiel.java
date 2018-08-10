@@ -11,8 +11,20 @@ package lab3_rodrigovelasquez_ricardogonzalez;
  */
 public class Sachiel extends Angel{
     
-    public void Movimiento(){
-        
+    public boolean Movimiento(int posx, int posy, int movx, int movy){
+        if (movx == posx+1 && movy == posy+1) {
+            return true;
+        }
+        if (movx == posx+1 && movy == posy-1) {
+            return true;
+        }
+        if (movx == posx-1 && movy == posy+1) {
+            return true;
+        }
+        if (movx == posx-1 && movy == posy-1) {
+            return true;
+        }
+        return false;
     }
     
     @Override

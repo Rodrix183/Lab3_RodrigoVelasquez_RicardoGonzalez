@@ -11,7 +11,14 @@ package lab3_rodrigovelasquez_ricardogonzalez;
  */
 public class Ramiel extends Angel{
     
-    public void Movimiento(){
+    public boolean Movimiento(int posx, int posy, int movx, int movy){
+        if ((movx == posx+1 || movx == posx-1) && movy == posy) {
+            return true;
+        }
+        if ((movy == posy+1 || movy == posy-1) && movx == posx) {
+            return true;
+        }
+        return false;
         
     }
     
