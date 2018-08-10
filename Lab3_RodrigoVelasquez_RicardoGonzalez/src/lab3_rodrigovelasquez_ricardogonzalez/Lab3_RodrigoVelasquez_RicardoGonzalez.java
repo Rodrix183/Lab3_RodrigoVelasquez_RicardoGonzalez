@@ -11,6 +11,7 @@ public class Lab3_RodrigoVelasquez_RicardoGonzalez {
     public static String[][] tokyo3 = new String[10][10];
     public static ArrayList<EVA> listaEVA = new ArrayList<>();
     public static ArrayList<Angel> listaAngeles = new ArrayList<>();
+    public static ArrayList<Piloto> listaPilotos = new ArrayList<>();
 //Evas
     public static String PRODMASA = "PM ", EVA_00 = "EV0", EVA_01 = "EV1", EVA_02 = "EV2";
 //Angeles
@@ -20,6 +21,7 @@ public class Lab3_RodrigoVelasquez_RicardoGonzalez {
         int resp = 0;
         while (resp != 5) {
             try {
+                //Engels
                 //Sachiel
                 listaAngeles.add(new Angel(Color.blue, "Se mueve de manera diagonal un cuadro a la vez", Color.orange, new Date(), "Sachiel", "No Vuela", 1));
                 listaAngeles.add(new Angel(Color.blue, "Se mueve de manera diagonal un cuadro a la vez", Color.orange, new Date(), "Sachiel", "No Vuela", 1));
@@ -34,6 +36,28 @@ public class Lab3_RodrigoVelasquez_RicardoGonzalez {
                 listaAngeles.add(new Angel(Color.black, "Su movimiento es dos casillas por delante", Color.red, new Date(), "Zeruel", "No Vuela", 3));
                 listaAngeles.add(new Angel(Color.black, "Su movimiento es dos casillas por delante", Color.red, new Date(), "Zeruel", "No Vuela", 3));
                 
+//                //pilotos
+//                listaPilotos.add(new Piloto("Ricardo", 20, "Quacker", "Encargado del EVA", "Dowal", 84.34, "EVA-00"));
+//                listaPilotos.add(new Piloto("Rodrigo", 20, "Max", "Encargado del EVA", "IST", 70.43, "EVA-00"));
+//                listaPilotos.add(new Piloto("Nelson", 19, "Avila Crusoe el Rio", "Encargado del EVA", "DelCampo", 84.34, "EVA-01"));
+//                listaPilotos.add(new Piloto("Shinji", 15, "Dr. Hikari", "Encargado del EVA", "Americana", 84.34, "EVA-02"));
+//                
+//                //EVAS
+//                //produccion en masa
+//                listaEVA.add(new EVA(Color.yellow, 1998, 3.4, "Salvaje", 2, null, 99, 65));
+//                listaEVA.add(new EVA(Color.yellow, 1998, 3.4, "Hostil", 2, null, 99, 65));
+//                listaEVA.add(new EVA(Color.yellow, 1998, 3.4, "Salvaje", 2, null, 99, 65));
+//                listaEVA.add(new EVA(Color.yellow, 1998, 3.4, "Nuevo", 2, null, 99, 65));
+//                
+//                //eva00
+//                listaEVA.add(new EVA(Color.yellow, 1998, 17, "Pura", 2, listaPilotos.get(0), 99, 65));
+//                listaEVA.add(new EVA(Color.yellow, 1998, 17, "Corrupta", 2, listaPilotos.get(1), 99, 65));
+//                
+//                //eva01
+//                listaEVA.add(new EVA(Color.yellow, 1998, 13, "Pura", 2, listaPilotos.get(2), 99, 65));
+//                
+//                //eva02
+//                listaEVA.add(new EVA(Color.yellow, 1998, 11, "Nueva", 2, listaPilotos.get(3), 99, 65));
                 
                 System.out.println("1) Lista de EVAs\n"
                         + "2) Lista de Angeles\n"
@@ -45,10 +69,14 @@ public class Lab3_RodrigoVelasquez_RicardoGonzalez {
 
                 switch (resp) {
                     case 1:
-                        
+                        for (EVA ev : listaEVA) {
+                            System.out.println(ev);
+                        }
                         break;
                     case 2:
-
+                        for (Angel ang : listaAngeles) {
+                            System.out.println(ang);
+                        }
                         break;
                     case 3:
 
