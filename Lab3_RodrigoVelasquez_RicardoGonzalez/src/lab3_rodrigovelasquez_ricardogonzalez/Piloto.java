@@ -16,14 +16,14 @@ public class Piloto {
     private String encargado;
     private String escuela;
     private double sinc;
-    private EVA asignado;
+    private String asignado;
 
     public Piloto() {
     }
     
     
 
-    public Piloto(String nombre, int edad, String familiar, String encargado, String escuela, double sinc, EVA asignado) {
+    public Piloto(String nombre, int edad, String familiar, String encargado, String escuela, double sinc, String asignado) {
         this.nombre = nombre;
         this.edad = edad;
         this.familiar = familiar;
@@ -81,11 +81,11 @@ public class Piloto {
         this.sinc = sinc;
     }
 
-    public EVA getAsignado() {
+    public String getAsignado() {
         return asignado;
     }
 
-    public void setAsignado(EVA asignado) {
+    public void setAsignado(String asignado) {
         this.asignado = asignado;
     }
 
