@@ -13,6 +13,11 @@ public class Lab3_RodrigoVelasquez_RicardoGonzalez {
     public static ArrayList<Angel> listaAngeles = new ArrayList<>();
     public static ArrayList<Piloto> listaPilotos = new ArrayList<>();
 
+    public static int x = 0, y = 0;//actuales
+    public static int xNueva = 0, yNueva = 0;//nuevas
+    public static int turno = 0;
+    public static String caracter = "";//actuales
+    static int actualJ = 0;
     //posiciones angeles
     public static int xS1 = 1, xS2 = 1, xR1 = 0, xR2 = 0, xZ1 = 1, xZ2 = 1, xZ3 = 3, xZ4 = 3, yS1 = 4, yS2 = 5, yR1 = 2, yR2 = 7, yZ1 = 1, yZ2 = 8, yZ3 = 2, yZ4 = 7;
 
@@ -24,6 +29,9 @@ public class Lab3_RodrigoVelasquez_RicardoGonzalez {
 
     //Angeles
     public static String SACHIEL = "-S-", RAMIEL = "-R-", ZERUEL = "-Z-";
+
+    //Neutro
+    public static String neutro = "---";
 
     public static void main(String[] args) {
         int resp = 0;
@@ -89,7 +97,64 @@ public class Lab3_RodrigoVelasquez_RicardoGonzalez {
 
                         break;
                     case 4:
-                        imprimir(tokyo3);
+                        try {
+                            imprimir(tokyo3);
+                            if (turno % 2 == 0) {
+                                actualJ = 1;
+                            } else {
+                                actualJ = 2;
+                            }
+                            switch (actualJ) {
+                                case 1:
+                                    try {
+                                        System.out.println("Escoja un Eva\n"
+                                                + "X: ");
+                                        x = sc.nextInt();
+                                        System.out.println("\nY: ");
+                                        y = sc.nextInt();
+                                        //verificar si hay un EVA
+                                        for (int i = 0; i < tokyo3.length; i++) {
+                                            for (int j = 0; j < tokyo3[i].length; j++) {
+                                                if (i == x && j == y) {
+                                                    //PRODMASA = "PM ", EVA_00 = "EV0", EVA_01 = "EV1", EVA_02 = "EV2"
+                                                    if (tokyo3[i][j] == PRODMASA) {
+                                                        caracter = PRODMASA;
+                                                    } else if (tokyo3[i][j] == EVA_00) {
+                                                        caracter = EVA_00;
+                                                    } else if (tokyo3[i][j] == EVA_01) {
+                                                        caracter = EVA_01;
+                                                    } else if (tokyo3[i][j] == EVA_02) {
+                                                        caracter = EVA_02;
+                                                    } else {
+                                                        System.out.println("No es un EVA");
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        System.out.println("1 Mover\n"
+                                                + "2 Atacar\n"
+                                                + "Ingrese que desea hacer");
+                                        int valid = sc.nextInt();
+                                        switch(valid){
+                                            case 1:
+                                                break;
+                                            case 2:
+                                                break;
+                                            default:
+                                                System.out.println("Opcion no valida");
+                                        
+                                        }
+                                    } catch (Exception e) {
+                                    }
+
+                                    break;
+                                case 2:
+                                    break;
+                            }
+                        } catch (Exception e) {
+
+                        }
+
                         break;
                     default:
                         resp = 5;
@@ -140,7 +205,7 @@ public class Lab3_RodrigoVelasquez_RicardoGonzalez {
                 } else if (i == x02 && j == y02) { //eva 02
                     tokyo3[i][j] = "[" + EVA_02 + "] ";
                 } else {
-                    tokyo3[i][j] = "[" + "---" + "] ";
+                    tokyo3[i][j] = "[" + neutro + "] ";
                 }
 
                 System.out.print(tokyo3[i][j]);
