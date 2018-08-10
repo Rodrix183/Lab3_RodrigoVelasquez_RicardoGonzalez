@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 public class Lab3_RodrigoVelasquez_RicardoGonzalez {
 
+    static EVA00 eva0 = new EVA00();
+    static boolean validacion;
     public static Scanner sc = new Scanner(System.in);
     public static String[][] tokyo3 = new String[10][10];
     public static ArrayList<EVA> listaEVA = new ArrayList<>();
@@ -113,36 +115,56 @@ public class Lab3_RodrigoVelasquez_RicardoGonzalez {
                                         System.out.println("\nY: ");
                                         y = sc.nextInt();
                                         //verificar si hay un EVA
-                                        for (int i = 0; i < tokyo3.length; i++) {
-                                            for (int j = 0; j < tokyo3[i].length; j++) {
-                                                if (i == x && j == y) {
+//                                        for (int i = 0; i < tokyo3.length; i++) {
+//                                            for (int j = 0; j < tokyo3[i].length; j++) {
+                                                //System.out.print(tokyo3[x][y]);
+                                                //if (i == x && j == y) {
                                                     //PRODMASA = "PM ", EVA_00 = "EV0", EVA_01 = "EV1", EVA_02 = "EV2"
-                                                    if (tokyo3[i][j] == PRODMASA) {
+                                                    System.out.println(tokyo3[x][y]);
+                                                    if (tokyo3[x][y].equals("["+PRODMASA+"] ")) {
+                                                        System.out.println("Es PM");
                                                         caracter = PRODMASA;
-                                                    } else if (tokyo3[i][j] == EVA_00) {
+                                                    } else if (tokyo3[x][y].equals("["+EVA_00+"] ")) {
+                                                        System.out.println("Es EVA-00");
                                                         caracter = EVA_00;
-                                                    } else if (tokyo3[i][j] == EVA_01) {
+                                                    } else if (tokyo3[x][y].equals("["+EVA_01+"] ")) {
+                                                        System.out.println("Es EVA-01");
                                                         caracter = EVA_01;
-                                                    } else if (tokyo3[i][j] == EVA_02) {
+                                                    } else if (tokyo3[x][y].equals("["+EVA_02+"] ")) {
+                                                        System.out.println("Es EVA-03");
                                                         caracter = EVA_02;
                                                     } else {
                                                         System.out.println("No es un EVA");
                                                     }
-                                                }
-                                            }
-                                        }
+                                                //} 
+//                                            }
+//                                        }
                                         System.out.println("1 Mover\n"
                                                 + "2 Atacar\n"
                                                 + "Ingrese que desea hacer");
                                         int valid = sc.nextInt();
-                                        switch(valid){
+                                        switch (valid) {
                                             case 1:
+                                                System.out.println("Ingrese mover en X: ");
+                                                xNueva = sc.nextInt();
+                                                System.out.println("Ingrese mover en Y: ");
+                                                yNueva = sc.nextInt();
+                                                if (caracter == PRODMASA) {
+                                                    validacion = eva0.Movimiento(x, y, xNueva, yNueva);
+                                                    if (validacion) {
+                                                        //aqui lo muevo
+                                                        System.out.println("Se movio");
+                                                    } else {
+                                                        System.out.println("No se movio");
+                                                    }
+                                                }
                                                 break;
                                             case 2:
+
                                                 break;
                                             default:
                                                 System.out.println("Opcion no valida");
-                                        
+
                                         }
                                     } catch (Exception e) {
                                     }
