@@ -9,16 +9,7 @@ package lab3_rodrigovelasquez_ricardogonzalez;
  *
  * @author Richard
  */
-public class PRA implements PrimeraRazaAncestral{
-
-    @Override
-    public void Moverse() {
-      
-    }
-
-    @Override
-    public void Atacar() {
-       
-    }
-    
+public interface PrimeraRazaAncestral {
+    void Moverse();
+    void Atacar();
 }
