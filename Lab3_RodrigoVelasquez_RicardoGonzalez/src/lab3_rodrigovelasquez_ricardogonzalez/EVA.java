@@ -1,16 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package lab3_rodrigovelasquez_ricardogonzalez;
 
 import java.awt.Color;
 
-/**
- *
- * @author Richard
- */
 public class EVA extends PRA {
 
     private Color color;
