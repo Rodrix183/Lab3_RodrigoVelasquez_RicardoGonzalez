@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class Lab3_RodrigoVelasquez_RicardoGonzalez {
 
+    static int vidaPM1 = 1, vidaPM2 = 1, vidaPM3 = 1, vidaPM4 = 1;
     static EVA00 eva0 = new EVA00();
     static boolean validacion;
     public static Scanner sc = new Scanner(System.in);
@@ -117,26 +118,26 @@ public class Lab3_RodrigoVelasquez_RicardoGonzalez {
                                         //verificar si hay un EVA
 //                                        for (int i = 0; i < tokyo3.length; i++) {
 //                                            for (int j = 0; j < tokyo3[i].length; j++) {
-                                                //System.out.print(tokyo3[x][y]);
-                                                //if (i == x && j == y) {
-                                                    //PRODMASA = "PM ", EVA_00 = "EV0", EVA_01 = "EV1", EVA_02 = "EV2"
-                                                    System.out.println(tokyo3[x][y]);
-                                                    if (tokyo3[x][y].equals("["+PRODMASA+"] ")) {
-                                                        System.out.println("Es PM");
-                                                        caracter = PRODMASA;
-                                                    } else if (tokyo3[x][y].equals("["+EVA_00+"] ")) {
-                                                        System.out.println("Es EVA-00");
-                                                        caracter = EVA_00;
-                                                    } else if (tokyo3[x][y].equals("["+EVA_01+"] ")) {
-                                                        System.out.println("Es EVA-01");
-                                                        caracter = EVA_01;
-                                                    } else if (tokyo3[x][y].equals("["+EVA_02+"] ")) {
-                                                        System.out.println("Es EVA-03");
-                                                        caracter = EVA_02;
-                                                    } else {
-                                                        System.out.println("No es un EVA");
-                                                    }
-                                                //} 
+                                        //System.out.print(tokyo3[x][y]);
+                                        //if (i == x && j == y) {
+                                        //PRODMASA = "PM ", EVA_00 = "EV0", EVA_01 = "EV1", EVA_02 = "EV2"
+                                        System.out.println(tokyo3[x][y]);
+                                        if (tokyo3[x][y].equals("[" + PRODMASA + "] ")) {
+                                            System.out.println("Es PM");
+                                            caracter = PRODMASA;
+                                        } else if (tokyo3[x][y].equals("[" + EVA_00 + "] ")) {
+                                            System.out.println("Es EVA-00");
+                                            caracter = EVA_00;
+                                        } else if (tokyo3[x][y].equals("[" + EVA_01 + "] ")) {
+                                            System.out.println("Es EVA-01");
+                                            caracter = EVA_01;
+                                        } else if (tokyo3[x][y].equals("[" + EVA_02 + "] ")) {
+                                            System.out.println("Es EVA-03");
+                                            caracter = EVA_02;
+                                        } else {
+                                            System.out.println("No es un EVA");
+                                        }
+                                        //} 
 //                                            }
 //                                        }
                                         System.out.println("1 Mover\n"
@@ -145,19 +146,38 @@ public class Lab3_RodrigoVelasquez_RicardoGonzalez {
                                         int valid = sc.nextInt();
                                         switch (valid) {
                                             case 1:
-                                                System.out.println("Ingrese mover en X: ");
-                                                xNueva = sc.nextInt();
-                                                System.out.println("Ingrese mover en Y: ");
-                                                yNueva = sc.nextInt();
-                                                if (caracter == PRODMASA) {
-                                                    validacion = eva0.Movimiento(x, y, xNueva, yNueva);
-                                                    if (validacion) {
-                                                        //aqui lo muevo
-                                                        System.out.println("Se movio");
-                                                    } else {
-                                                        System.out.println("No se movio");
-                                                    }
+                                                try {
+                                                    System.out.println("Ingrese mover en X: ");
+                                                    xNueva = sc.nextInt();
+                                                    System.out.println("Ingrese mover en Y: ");
+                                                    yNueva = sc.nextInt();
+                                                } catch (Exception e) {
+                                                    System.out.println("No hay posiciones");
                                                 }
+                                                
+                                                //if (caracter == PRODMASA) {
+                                                validacion = eva0.Movimiento(tokyo3, x, y, xNueva, yNueva);
+                                                if (validacion) {
+                                                    //aqui lo muevo
+                                                    System.out.println("Moviendo");
+                                                    if (caracter == PRODMASA) {
+                                                        tokyo3[xNueva][yNueva] =  "[" + PRODMASA + "] ";
+                                                        tokyo3[x][y] = "[" + neutro + "] ";
+                                                    }else if (caracter == EVA_00) {
+                                                        tokyo3[xNueva][yNueva] =  "[" + EVA_00 + "] ";
+                                                        tokyo3[x][y] = "[" + neutro + "] ";
+                                                    }else if (caracter == EVA_01) {
+                                                        tokyo3[xNueva][yNueva] =  "[" + EVA_01 + "] ";
+                                                        tokyo3[x][y] = "[" + neutro + "] ";
+                                                    }else if (caracter == EVA_02) {
+                                                        tokyo3[xNueva][yNueva] =  "[" + EVA_02 + "] ";
+                                                        tokyo3[x][y] = "[" + neutro + "] ";
+                                                    }
+
+                                                } else {
+                                                    System.out.println("No se movio");
+                                                }
+
                                                 break;
                                             case 2:
 
