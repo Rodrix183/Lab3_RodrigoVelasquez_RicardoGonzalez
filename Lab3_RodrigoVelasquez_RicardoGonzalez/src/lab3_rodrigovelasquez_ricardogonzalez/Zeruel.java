@@ -11,8 +11,11 @@ package lab3_rodrigovelasquez_ricardogonzalez;
  */
 public class Zeruel extends Angel{
     
-    public void Movimiento(){
-        
+    public boolean Movimiento(int posx, int posy, int movx, int movy){
+        if (movx == posx && movy == posy-2) {
+            return true;
+        }
+        return false;
     }
     
     @Override

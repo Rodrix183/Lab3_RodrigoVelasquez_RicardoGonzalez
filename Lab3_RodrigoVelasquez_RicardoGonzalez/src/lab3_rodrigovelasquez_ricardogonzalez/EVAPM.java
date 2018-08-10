@@ -12,7 +12,7 @@ package lab3_rodrigovelasquez_ricardogonzalez;
 public class EVAPM extends EVA{
     
     public void Movimiento(){
-        
+
     }
     
     @Override
