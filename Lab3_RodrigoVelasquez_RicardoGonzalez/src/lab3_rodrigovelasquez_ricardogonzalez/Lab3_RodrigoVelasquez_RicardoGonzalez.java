@@ -7,8 +7,17 @@ import java.util.Scanner;
 
 public class Lab3_RodrigoVelasquez_RicardoGonzalez {
 
+    static int ANG = 5, EVA = 5;
     static int vidaPM1 = 1, vidaPM2 = 1, vidaPM3 = 1, vidaPM4 = 1;
+
     static EVA00 eva0 = new EVA00();
+    static EVA01 eva1 = new EVA01();
+    static EVA02 eva2 = new EVA02();
+    static EVAPM evapm = new EVAPM();
+    static Ramiel ram = new Ramiel();
+    static Sachiel sac = new Sachiel();
+    static Zeruel zer = new Zeruel();
+
     static boolean validacion;
     public static Scanner sc = new Scanner(System.in);
     public static String[][] tokyo3 = new String[10][10];
@@ -100,102 +109,188 @@ public class Lab3_RodrigoVelasquez_RicardoGonzalez {
 
                         break;
                     case 4:
-                        try {
-                            imprimir(tokyo3);
-                            if (turno % 2 == 0) {
-                                actualJ = 1;
-                            } else {
-                                actualJ = 2;
-                            }
-                            switch (actualJ) {
-                                case 1:
-                                    try {
-                                        System.out.println("Escoja un Eva\n"
-                                                + "X: ");
-                                        x = sc.nextInt();
-                                        System.out.println("\nY: ");
-                                        y = sc.nextInt();
-                                        //verificar si hay un EVA
-//                                        for (int i = 0; i < tokyo3.length; i++) {
-//                                            for (int j = 0; j < tokyo3[i].length; j++) {
-                                        //System.out.print(tokyo3[x][y]);
-                                        //if (i == x && j == y) {
-                                        //PRODMASA = "PM ", EVA_00 = "EV0", EVA_01 = "EV1", EVA_02 = "EV2"
-                                        System.out.println(tokyo3[x][y]);
-                                        if (tokyo3[x][y].equals("[" + PRODMASA + "] ")) {
-                                            System.out.println("Es PM");
-                                            caracter = PRODMASA;
-                                        } else if (tokyo3[x][y].equals("[" + EVA_00 + "] ")) {
-                                            System.out.println("Es EVA-00");
-                                            caracter = EVA_00;
-                                        } else if (tokyo3[x][y].equals("[" + EVA_01 + "] ")) {
-                                            System.out.println("Es EVA-01");
-                                            caracter = EVA_01;
-                                        } else if (tokyo3[x][y].equals("[" + EVA_02 + "] ")) {
-                                            System.out.println("Es EVA-03");
-                                            caracter = EVA_02;
-                                        } else {
-                                            System.out.println("No es un EVA");
-                                        }
-                                        //} 
+                        do {
+                            try {
+                                imprimir(tokyo3);
+                                if (turno % 2 == 0) {
+                                    actualJ = 1;
+                                } else {
+                                    actualJ = 2;
+                                }
+                                switch (actualJ) {
+                                    //si es el jugador 1
+                                    case 1: //mover EVA
+                                        try {
+                                            System.out.println("Escoja un Eva\n"
+                                                    + "X: ");
+                                            x = sc.nextInt();
+                                            System.out.println("\nY: ");
+                                            y = sc.nextInt();
+                                            //verificar si hay un EVA
+                                            //PRODMASA = "PM ", EVA_00 = "EV0", EVA_01 = "EV1", EVA_02 = "EV2"
+                                            System.out.println(tokyo3[x][y]);
+                                            if (tokyo3[x][y].equals("[" + PRODMASA + "] ")) {
+                                                System.out.println("Es PM");
+                                                caracter = PRODMASA;
+                                            } else if (tokyo3[x][y].equals("[" + EVA_00 + "] ")) {
+                                                System.out.println("Es EVA-00");
+                                                caracter = EVA_00;
+                                            } else if (tokyo3[x][y].equals("[" + EVA_01 + "] ")) {
+                                                System.out.println("Es EVA-01");
+                                                caracter = EVA_01;
+                                            } else if (tokyo3[x][y].equals("[" + EVA_02 + "] ")) {
+                                                System.out.println("Es EVA-03");
+                                                caracter = EVA_02;
+                                            } else {
+                                                System.out.println("No es un EVA");
+                                            }
+                                            //} 
 //                                            }
 //                                        }
-                                        System.out.println("1 Mover\n"
-                                                + "2 Atacar\n"
-                                                + "Ingrese que desea hacer");
-                                        int valid = sc.nextInt();
-                                        switch (valid) {
-                                            case 1:
-                                                try {
-                                                    System.out.println("Ingrese mover en X: ");
-                                                    xNueva = sc.nextInt();
-                                                    System.out.println("Ingrese mover en Y: ");
-                                                    yNueva = sc.nextInt();
-                                                } catch (Exception e) {
-                                                    System.out.println("No hay posiciones");
-                                                }
-                                                
-                                                //if (caracter == PRODMASA) {
-                                                validacion = eva0.Movimiento(tokyo3, x, y, xNueva, yNueva);
-                                                if (validacion) {
-                                                    //aqui lo muevo
-                                                    System.out.println("Moviendo");
-                                                    if (caracter == PRODMASA) {
-                                                        tokyo3[xNueva][yNueva] =  "[" + PRODMASA + "] ";
-                                                        tokyo3[x][y] = "[" + neutro + "] ";
-                                                    }else if (caracter == EVA_00) {
-                                                        tokyo3[xNueva][yNueva] =  "[" + EVA_00 + "] ";
-                                                        tokyo3[x][y] = "[" + neutro + "] ";
-                                                    }else if (caracter == EVA_01) {
-                                                        tokyo3[xNueva][yNueva] =  "[" + EVA_01 + "] ";
-                                                        tokyo3[x][y] = "[" + neutro + "] ";
-                                                    }else if (caracter == EVA_02) {
-                                                        tokyo3[xNueva][yNueva] =  "[" + EVA_02 + "] ";
-                                                        tokyo3[x][y] = "[" + neutro + "] ";
+                                            System.out.println("1 Mover\n"
+                                                    + "2 Atacar\n"
+                                                    + "Ingrese que desea hacer");
+                                            int valid = sc.nextInt();
+                                            switch (valid) {
+                                                case 1: //JUGADOR 1
+                                                    try {
+                                                        System.out.println("Ingrese mover en X: ");
+                                                        xNueva = sc.nextInt();
+                                                        System.out.println("Ingrese mover en Y: ");
+                                                        yNueva = sc.nextInt();
+                                                    } catch (Exception e) {
+                                                        System.out.println("No hay posiciones");
+                                                    }
+                                                    
+                                                    //validar movimiento dependiendo del eva
+                                                    if (caracter == EVA_00) {
+                                                        validacion = eva0.Movimiento(tokyo3, x, y, xNueva, yNueva);
+                                                    } else if (caracter == EVA_01) {
+                                                        validacion = eva1.Movimiento(tokyo3, x, y, xNueva, yNueva);
+                                                    } else if (caracter == EVA_02) {
+                                                        validacion = eva2.Movimiento(tokyo3, x, y, xNueva, yNueva);
+                                                    } else if (caracter == PRODMASA) {
+                                                        validacion = evapm.Movimiento(tokyo3, x, y, xNueva, yNueva);
                                                     }
 
-                                                } else {
-                                                    System.out.println("No se movio");
-                                                }
+                                                    if (validacion) {
+                                                        //aqui lo muevo
+                                                        System.out.println("Moviendo");
+                                                        if (caracter == PRODMASA) {
+                                                            tokyo3[xNueva][yNueva] = "[" + PRODMASA + "] ";
+                                                            tokyo3[x][y] = "[" + neutro + "] ";
+                                                        } else if (caracter == EVA_00) {
+                                                            tokyo3[xNueva][yNueva] = "[" + EVA_00 + "] ";
+                                                            tokyo3[x][y] = "[" + neutro + "] ";
+                                                        } else if (caracter == EVA_01) {
+                                                            tokyo3[xNueva][yNueva] = "[" + EVA_01 + "] ";
+                                                            tokyo3[x][y] = "[" + neutro + "] ";
+                                                        } else if (caracter == EVA_02) {
+                                                            tokyo3[xNueva][yNueva] = "[" + EVA_02 + "] ";
+                                                            tokyo3[x][y] = "[" + neutro + "] ";
+                                                        }
 
-                                                break;
-                                            case 2:
+                                                    } else {
+                                                        System.out.println("No se movio");
+                                                    }
 
-                                                break;
-                                            default:
-                                                System.out.println("Opcion no valida");
+                                                    break;
+                                                case 2: //ATACAR                                                    
 
+                                                    break;
+                                                default:
+                                                    System.out.println("Opcion no valida");
+
+                                            }
+                                        } catch (Exception e) {
                                         }
-                                    } catch (Exception e) {
-                                    }
+                                        //aqui finaliza el jugador 1
+                                        break;
+                                    case 2:
+                                        //aqui va el jugador 2
+                                        //AQUI VAN LOS ANGELES
+                                        //SACHIEL = "-S-", RAMIEL = "-R-", ZERUEL = "-Z-"
+                                        try {
+                                            System.out.println("Escoja un Angel\n"
+                                                    + "X: ");
+                                            x = sc.nextInt();
+                                            System.out.println("\nY: ");
+                                            y = sc.nextInt();
+                                            //verificar si hay un EVA
+                                            //PRODMASA = "PM ", EVA_00 = "EV0", EVA_01 = "EV1", EVA_02 = "EV2"
+                                            System.out.println(tokyo3[x][y]);
+                                            if (tokyo3[x][y].equals("[" + SACHIEL + "] ")) {
+                                                System.out.println("Es Sachiel");
+                                                caracter = SACHIEL;
+                                            } else if (tokyo3[x][y].equals("[" + RAMIEL + "] ")) {
+                                                System.out.println("Es Ramiel");
+                                                caracter = RAMIEL;
+                                            } else if (tokyo3[x][y].equals("[" + ZERUEL + "] ")) {
+                                                System.out.println("Es Zeruel");
+                                                caracter = ZERUEL;
+                                            } else {
+                                                System.out.println("No es un Angel");
+                                            }
 
-                                    break;
-                                case 2:
-                                    break;
-                            }
-                        } catch (Exception e) {
+                                            System.out.println("1 Mover\n"
+                                                    + "2 Atacar\n"
+                                                    + "Ingrese que desea hacer");
+                                            int valid = sc.nextInt();
+                                            switch (valid) {
+                                                case 1: //JUGADOR 2
+                                                    try {
+                                                        System.out.println("Ingrese mover en X: ");
+                                                        xNueva = sc.nextInt();
+                                                        System.out.println("Ingrese mover en Y: ");
+                                                        yNueva = sc.nextInt();
+                                                    } catch (Exception e) {
+                                                        System.out.println("No hay posiciones");
+                                                    }
+                                                    
+                                                    //validar movimiento dependiendo del angel
+                                                    if (caracter == SACHIEL) {
+                                                        validacion = sac.Movimiento(tokyo3, x, y, xNueva, yNueva);
+                                                    } else if (caracter == ZERUEL) {
+                                                        validacion = zer.Movimiento(tokyo3, x, y, xNueva, yNueva);
+                                                    } else if (caracter == RAMIEL) {
+                                                        validacion = ram.Movimiento(tokyo3, x, y, xNueva, yNueva);
+                                                    }
+                                                    
+                                                    if (validacion) {
+                                                        //aqui lo muevo
+                                                        System.out.println("Moviendo");
+                                                        if (caracter == SACHIEL) {
+                                                            tokyo3[xNueva][yNueva] = "[" + SACHIEL + "] ";
+                                                            tokyo3[x][y] = "[" + neutro + "] ";
+                                                        } else if (caracter == ZERUEL) {
+                                                            tokyo3[xNueva][yNueva] = "[" + ZERUEL + "] ";
+                                                            tokyo3[x][y] = "[" + neutro + "] ";
+                                                        } else if (caracter == RAMIEL) {
+                                                            tokyo3[xNueva][yNueva] = "[" + RAMIEL + "] ";
+                                                            tokyo3[x][y] = "[" + neutro + "] ";
+                                                        } 
 
-                        }
+                                                    } else {
+                                                        System.out.println("No se movio");
+                                                    }
+
+                                                    break;
+                                                case 2: //ATACAR                                                    
+
+                                                    break;
+                                                default:
+                                                    System.out.println("Opcion no valida");
+
+                                            }
+                                        } catch (Exception e) {
+                                        }
+                                        //aqui termina el jugador 2
+                                        break;
+                                }
+                            } catch (Exception e) {
+
+                            } //fin catch 
+                        } while (ANG != 0 || EVA != 0);
 
                         break;
                     default:
