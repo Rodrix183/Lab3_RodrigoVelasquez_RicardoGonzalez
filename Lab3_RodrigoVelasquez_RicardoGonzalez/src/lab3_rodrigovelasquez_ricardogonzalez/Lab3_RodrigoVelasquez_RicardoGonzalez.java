@@ -93,7 +93,7 @@ public class Lab3_RodrigoVelasquez_RicardoGonzalez {
                         + "5) Salir\n"
                         + "Ingrese opcion");
                 resp = sc.nextInt();
-
+                //aqui el menu
                 switch (resp) {
                     case 1:
                         for (EVA ev : listaEVA) {
@@ -161,7 +161,7 @@ public class Lab3_RodrigoVelasquez_RicardoGonzalez {
                                                     } catch (Exception e) {
                                                         System.out.println("No hay posiciones");
                                                     }
-                                                    
+
                                                     //validar movimiento dependiendo del eva
                                                     if (caracter == EVA_00) {
                                                         validacion = eva0.Movimiento(tokyo3, x, y, xNueva, yNueva);
@@ -172,20 +172,41 @@ public class Lab3_RodrigoVelasquez_RicardoGonzalez {
                                                     } else if (caracter == PRODMASA) {
                                                         validacion = evapm.Movimiento(tokyo3, x, y, xNueva, yNueva);
                                                     }
-
-                                                    if (validacion) {
+                                                    System.out.println(validacion);
+                                                    if (validacion == true) {
                                                         //aqui lo muevo
                                                         System.out.println("Moviendo");
                                                         if (caracter == PRODMASA) {
+                                                            if (x == xPM1 && y == yPM1) {
+                                                                xPM1 = xNueva;
+                                                                yPM1 = yNueva;
+                                                            } else if (x == xPM2 && y == yPM2) {
+                                                                xPM2 = xNueva;
+                                                                yPM2 = yNueva;
+
+                                                            }
+
                                                             tokyo3[xNueva][yNueva] = "[" + PRODMASA + "] ";
                                                             tokyo3[x][y] = "[" + neutro + "] ";
                                                         } else if (caracter == EVA_00) {
+                                                            if (x == x00p && y == y00p) {
+                                                                x00p = xNueva;
+                                                                y00p = yNueva;
+                                                            } else if (x == x00s && y == y00s) {
+                                                                x00s = xNueva;
+                                                                y00s = yNueva;
+
+                                                            }
                                                             tokyo3[xNueva][yNueva] = "[" + EVA_00 + "] ";
                                                             tokyo3[x][y] = "[" + neutro + "] ";
                                                         } else if (caracter == EVA_01) {
+                                                            x01 = xNueva;
+                                                            y01 = yNueva;
                                                             tokyo3[xNueva][yNueva] = "[" + EVA_01 + "] ";
                                                             tokyo3[x][y] = "[" + neutro + "] ";
                                                         } else if (caracter == EVA_02) {
+                                                            x02 = xNueva;
+                                                            y02 = yNueva;
                                                             tokyo3[xNueva][yNueva] = "[" + EVA_02 + "] ";
                                                             tokyo3[x][y] = "[" + neutro + "] ";
                                                         }
@@ -220,12 +241,40 @@ public class Lab3_RodrigoVelasquez_RicardoGonzalez {
                                             //PRODMASA = "PM ", EVA_00 = "EV0", EVA_01 = "EV1", EVA_02 = "EV2"
                                             System.out.println(tokyo3[x][y]);
                                             if (tokyo3[x][y].equals("[" + SACHIEL + "] ")) {
+                                                if (x == xS1 && y == yS1) {
+                                                    xS1 = xNueva;
+                                                    yS1 = xNueva;
+                                                } else if (x == xS2 && y == yS2) {
+                                                    xS2 = xNueva;
+                                                    yS2 = xNueva;
+                                                }
+
                                                 System.out.println("Es Sachiel");
                                                 caracter = SACHIEL;
                                             } else if (tokyo3[x][y].equals("[" + RAMIEL + "] ")) {
+                                                if (x == xR1 && y == yR1) {
+                                                    xR1 = xNueva;
+                                                    yR1 = xNueva;
+                                                } else if (x == xR2 && y == yR2) {
+                                                    xR2 = xNueva;
+                                                    yR2 = xNueva;
+                                                }
                                                 System.out.println("Es Ramiel");
                                                 caracter = RAMIEL;
                                             } else if (tokyo3[x][y].equals("[" + ZERUEL + "] ")) {
+                                                if (x == xZ1 && y == yZ1) {
+                                                    xZ1 = xNueva;
+                                                    yZ1 = xNueva;
+                                                } else if (x == xZ2 && y == yZ2) {
+                                                    xS2 = xNueva;
+                                                    yS2 = xNueva;
+                                                } else if (x == xZ3 && y == yZ3) {
+                                                    xZ3 = xNueva;
+                                                    yZ3 = xNueva;
+                                                } else if (x == xZ4 && y == yZ4) {
+                                                    xZ4 = xNueva;
+                                                    yZ4 = xNueva;
+                                                }
                                                 System.out.println("Es Zeruel");
                                                 caracter = ZERUEL;
                                             } else {
@@ -246,7 +295,7 @@ public class Lab3_RodrigoVelasquez_RicardoGonzalez {
                                                     } catch (Exception e) {
                                                         System.out.println("No hay posiciones");
                                                     }
-                                                    
+
                                                     //validar movimiento dependiendo del angel
                                                     if (caracter == SACHIEL) {
                                                         validacion = sac.Movimiento(tokyo3, x, y, xNueva, yNueva);
@@ -255,7 +304,7 @@ public class Lab3_RodrigoVelasquez_RicardoGonzalez {
                                                     } else if (caracter == RAMIEL) {
                                                         validacion = ram.Movimiento(tokyo3, x, y, xNueva, yNueva);
                                                     }
-                                                    
+
                                                     if (validacion) {
                                                         //aqui lo muevo
                                                         System.out.println("Moviendo");
@@ -268,7 +317,7 @@ public class Lab3_RodrigoVelasquez_RicardoGonzalez {
                                                         } else if (caracter == RAMIEL) {
                                                             tokyo3[xNueva][yNueva] = "[" + RAMIEL + "] ";
                                                             tokyo3[x][y] = "[" + neutro + "] ";
-                                                        } 
+                                                        }
 
                                                     } else {
                                                         System.out.println("No se movio");
