@@ -172,8 +172,8 @@ public class Lab3_RodrigoVelasquez_RicardoGonzalez {
                                                     } else if (caracter == PRODMASA) {
                                                         validacion = evapm.Movimiento(tokyo3, x, y, xNueva, yNueva);
                                                     }
-
-                                                    if (validacion) {
+                                                    System.out.println(validacion);
+                                                    if (validacion == true) {
                                                         //aqui lo muevo
                                                         System.out.println("Moviendo");
                                                         if (caracter == PRODMASA) {
