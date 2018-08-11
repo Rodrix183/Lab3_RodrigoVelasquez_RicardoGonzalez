@@ -18,7 +18,7 @@ public class Zeruel extends Angel {
         if (movy > 9 || movy < 0) {
             return false;
         }
-        if (tokyo3[movx][movy].equals("[" + "PM " + "] ") || tokyo3[movx][movy].equals("[" + "EV0" + "] ") || tokyo3[movx][movy].equals("[" + "EV1" + "] ") || tokyo3[movx][movy].equals("[" + "EV2" + "] ") || tokyo3[movx][movy].equals("[" + "-S-" + "] ") || tokyo3[movx][movy].equals("[" + "-R-" + "] ") || tokyo3[movx][movy].equals("[" + "-Z-" + "] ") || tokyo3[movx][movy].equals("[" + "---" + "] ")) {
+        if (tokyo3[movx][movy].equals("[" + "PM " + "] ") || tokyo3[movx][movy].equals("[" + "EV0" + "] ") || tokyo3[movx][movy].equals("[" + "EV1" + "] ") || tokyo3[movx][movy].equals("[" + "EV2" + "] ") || tokyo3[movx][movy].equals("[" + "-S-" + "] ") || tokyo3[movx][movy].equals("[" + "-R-" + "] ") || tokyo3[movx][movy].equals("[" + "-Z-" + "] ")) {
             return false;
         }
         if (movx == posx && movy == posy - 2) {
@@ -29,7 +29,7 @@ public class Zeruel extends Angel {
 
     @Override
     public void Atacar() {
-
+        
     }
 
 }
