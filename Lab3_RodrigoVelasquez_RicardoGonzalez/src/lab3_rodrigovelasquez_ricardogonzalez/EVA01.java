@@ -18,7 +18,7 @@ public class EVA01 extends EVA{
         if (movy > 9 || movy < 0) {
             return false;
         }
-        if (tokyo3[movx][movy].equals("["+"PM "+"] ") || tokyo3[movx][movy].equals("["+"EV0"+"] ") || tokyo3[movx][movy].equals("["+"EV1"+"] ") || tokyo3[movx][movy].equals("["+"EV2"+"] ") || tokyo3[movx][movy].equals("["+"-S-"+"] ") || tokyo3[movx][movy].equals("["+"-R-"+"] ") || tokyo3[movx][movy].equals("["+"-Z-"+"] ") || tokyo3[movx][movy].equals("["+"---"+"] ")) {
+        if (tokyo3[movx][movy].equals("["+"PM "+"] ") || tokyo3[movx][movy].equals("["+"EV0"+"] ") || tokyo3[movx][movy].equals("["+"EV1"+"] ") || tokyo3[movx][movy].equals("["+"EV2"+"] ") || tokyo3[movx][movy].equals("["+"-S-"+"] ") || tokyo3[movx][movy].equals("["+"-R-"+"] ") || tokyo3[movx][movy].equals("["+"-Z-"+"] ")) {
             return false;
         }
         if (movx == posx-3 || movx == posx-2 || movx == posx-1 || movx == posx+1 || movx == posx+2 || movx == posx+3) {
@@ -29,8 +29,8 @@ public class EVA01 extends EVA{
         return false;
     }
     
-    @Override
-    public void Atacar(){
+    
+    public void Atacar(String [][] tokyo3, int posx, int posy, int movx, int movy){
         
     }
 }
