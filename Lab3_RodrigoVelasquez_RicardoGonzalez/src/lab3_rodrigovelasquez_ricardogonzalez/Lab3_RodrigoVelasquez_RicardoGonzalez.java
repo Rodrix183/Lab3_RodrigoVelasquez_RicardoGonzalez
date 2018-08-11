@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 public class Lab3_RodrigoVelasquez_RicardoGonzalez {
 
+    static Piloto p = new Piloto();
+
     static int ANG = 5, EVA = 5;
     static int vidaPM1 = 1, vidaPM2 = 1, vidaPM3 = 1, vidaPM4 = 1;
 
@@ -47,45 +49,92 @@ public class Lab3_RodrigoVelasquez_RicardoGonzalez {
 
     public static void main(String[] args) {
         int resp = 0;
+        //Engels
+        //Sachiel
+        listaAngeles.add(new Angel(Color.blue, "Se mueve de manera diagonal un cuadro a la vez", Color.orange, new Date(), "Sachiel", "No Vuela", 1));
+        listaAngeles.add(new Angel(Color.blue, "Se mueve de manera diagonal un cuadro a la vez", Color.orange, new Date(), "Sachiel", "No Vuela", 1));
+
+        //Ramiel
+        listaAngeles.add(new Angel(Color.blue, "Se mueve una casilla a la vez", Color.green, new Date(), "Ramiel", "Si Vuela", 2));
+        listaAngeles.add(new Angel(Color.blue, "Se mueve una casilla a la vez", Color.green, new Date(), "Ramiel", "Si Vuela", 2));
+
+        //Zeruel
+        listaAngeles.add(new Angel(Color.black, "Su movimiento es dos casillas por delante", Color.red, new Date(), "Zeruel", "No Vuela", 3));
+        listaAngeles.add(new Angel(Color.black, "Su movimiento es dos casillas por delante", Color.red, new Date(), "Zeruel", "No Vuela", 3));
+        listaAngeles.add(new Angel(Color.black, "Su movimiento es dos casillas por delante", Color.red, new Date(), "Zeruel", "No Vuela", 3));
+        listaAngeles.add(new Angel(Color.black, "Su movimiento es dos casillas por delante", Color.red, new Date(), "Zeruel", "No Vuela", 3));
+
+        //pilotos
+        listaPilotos.add(new Piloto("Ricardo", 20, "Quacker", "Encargado del EVA", "Dowal", 84.34, "EVA-00"));
+        listaPilotos.add(new Piloto("Rodrigo", 20, "Max", "Encargado del EVA", "IST", 70.43, "EVA-00"));
+        listaPilotos.add(new Piloto("Nelson", 19, "Avila Crusoe el Rio", "Encargado del EVA", "DelCampo", 84.34, "EVA-01"));
+        listaPilotos.add(new Piloto("Shinji", 15, "Dr. Hikari", "Encargado del EVA", "Americana", 84.34, "EVA-02"));
+
+        //EVAS
+        //produccion en masa
+        listaEVA.add(new EVA(Color.yellow, 1998, 3.4, "Salvaje", 2, null, 99, 65));
+        listaEVA.add(new EVA(Color.yellow, 1998, 3.4, "Hostil", 2, null, 99, 65));
+        listaEVA.add(new EVA(Color.yellow, 1998, 3.4, "Salvaje", 2, null, 99, 65));
+        listaEVA.add(new EVA(Color.yellow, 1998, 3.4, "Nuevo", 2, null, 99, 65));
+
+        //eva00
+        listaEVA.add(new EVA(Color.yellow, 1998, 17, "Pura", 2, listaPilotos.get(0), 99, 65));
+        listaEVA.add(new EVA(Color.yellow, 1998, 17, "Corrupta", 2, listaPilotos.get(1), 99, 65));
+
+        //eva01
+        listaEVA.add(new EVA(Color.yellow, 1998, 13, "Pura", 2, listaPilotos.get(2), 99, 65));
+
+        //eva02
+        listaEVA.add(new EVA(Color.yellow, 1998, 11, "Nueva", 2, listaPilotos.get(3), 99, 65));
+
+        System.out.println("MAGI init\n"
+                + "Bienvenido a Nerv\n"
+                + "............................-*@WWWWWWWWWWWW+...............\n"
+                + "\n"
+                + "...........................+WWWWWWWWWWWWWW+................\n"
+                + "\n"
+                + "................**.........@WWWWWWWWWWWWWWWWW@+............\n"
+                + "\n"
+                + "................=W+........#WWWWWWWWWWWWWWWWWWWWW=.........\n"
+                + "\n"
+                + "..................#@-.....+WWWWWWWWWWWWWWWWWWWWWWWW+.......\n"
+                + "\n"
+                + "....................#=...=WWWWWWWWWWWWWWWWWWWWWWWWWW@......\n"
+                + "\n"
+                + ".....................-#WWWWWWWWWWWWWWWWWWWWWWWWWWWW#=......\n"
+                + "\n"
+                + "........-:::-...-:::-::+WWWWWWWWWWWWWWWWW@#WWWW@@-.........\n"
+                + "\n"
+                + "..........#WW@-...#...=WW+@WWWWWWWWWWWWWWW@#+..............\n"
+                + "\n"
+                + "..........=.#WW=..=...=WW-.#WWWWWWWWWWWWWWWWWW@-...........\n"
+                + "\n"
+                + "..........=..:WWW:=...=WW#@@.:WWWWWWWWWWWWWWWWW#...........\n"
+                + "\n"
+                + "..........=....=WW#...=WW-.*..-*WWWWWWWWWWWWWWWW#..........\n"
+                + "\n"
+                + "..........#.....-@#...=WW:...*#..*WWWWWWWWWWWWWWW:.........\n"
+                + "\n"
+                + "..................-................=WWWWWWWWWWWWW#.........\n"
+                + "\n"
+                + "........................:WW#+*@W=.-#WWWWWWWWWWWWWW=........\n"
+                + "\n"
+                + "........................-WW=...WW#..@WW#WWWWWWWWWW=........\n"
+                + "\n"
+                + "........................-WW=..*WW:..-@W@-#WWWWWWWW#........\n"
+                + "\n"
+                + "........................-WW=:WW@.....-WW#++@WWWWWW#........\n"
+                + "\n"
+                + "........................-WW=..#WW+....:WW+..-@WWWW#........\n"
+                + "\n"
+                + ".......................:=@@@+-.+@@#:...+*.....-@WW=........\n"
+                + "\n"
+                + "................................................:WW........\n");
         while (resp != 5) {
             try {
-                //Engels
-                //Sachiel
-                listaAngeles.add(new Angel(Color.blue, "Se mueve de manera diagonal un cuadro a la vez", Color.orange, new Date(), "Sachiel", "No Vuela", 1));
-                listaAngeles.add(new Angel(Color.blue, "Se mueve de manera diagonal un cuadro a la vez", Color.orange, new Date(), "Sachiel", "No Vuela", 1));
 
-                //Ramiel
-                listaAngeles.add(new Angel(Color.blue, "Se mueve una casilla a la vez", Color.green, new Date(), "Ramiel", "Si Vuela", 2));
-                listaAngeles.add(new Angel(Color.blue, "Se mueve una casilla a la vez", Color.green, new Date(), "Ramiel", "Si Vuela", 2));
-
-                //Zeruel
-                listaAngeles.add(new Angel(Color.black, "Su movimiento es dos casillas por delante", Color.red, new Date(), "Zeruel", "No Vuela", 3));
-                listaAngeles.add(new Angel(Color.black, "Su movimiento es dos casillas por delante", Color.red, new Date(), "Zeruel", "No Vuela", 3));
-                listaAngeles.add(new Angel(Color.black, "Su movimiento es dos casillas por delante", Color.red, new Date(), "Zeruel", "No Vuela", 3));
-                listaAngeles.add(new Angel(Color.black, "Su movimiento es dos casillas por delante", Color.red, new Date(), "Zeruel", "No Vuela", 3));
-
-                //pilotos
-                listaPilotos.add(new Piloto("Ricardo", 20, "Quacker", "Encargado del EVA", "Dowal", 84.34, "EVA-00"));
-                listaPilotos.add(new Piloto("Rodrigo", 20, "Max", "Encargado del EVA", "IST", 70.43, "EVA-00"));
-                listaPilotos.add(new Piloto("Nelson", 19, "Avila Crusoe el Rio", "Encargado del EVA", "DelCampo", 84.34, "EVA-01"));
-                listaPilotos.add(new Piloto("Shinji", 15, "Dr. Hikari", "Encargado del EVA", "Americana", 84.34, "EVA-02"));
-
-                //EVAS
-                //produccion en masa
-                listaEVA.add(new EVA(Color.yellow, 1998, 3.4, "Salvaje", 2, null, 99, 65));
-                listaEVA.add(new EVA(Color.yellow, 1998, 3.4, "Hostil", 2, null, 99, 65));
-                listaEVA.add(new EVA(Color.yellow, 1998, 3.4, "Salvaje", 2, null, 99, 65));
-                listaEVA.add(new EVA(Color.yellow, 1998, 3.4, "Nuevo", 2, null, 99, 65));
-
-                //eva00
-                listaEVA.add(new EVA(Color.yellow, 1998, 17, "Pura", 2, listaPilotos.get(0), 99, 65));
-                listaEVA.add(new EVA(Color.yellow, 1998, 17, "Corrupta", 2, listaPilotos.get(1), 99, 65));
-
-                //eva01
-                listaEVA.add(new EVA(Color.yellow, 1998, 13, "Pura", 2, listaPilotos.get(2), 99, 65));
-
-                //eva02
-                listaEVA.add(new EVA(Color.yellow, 1998, 11, "Nueva", 2, listaPilotos.get(3), 99, 65));
+                System.out.println("OPCIONES\n"
+                        + "Elija una opción:");
                 System.out.println("1) Lista de EVAs\n"
                         + "2) Lista de Angeles\n"
                         + "3) CRUD Pilotos\n"
@@ -96,17 +145,47 @@ public class Lab3_RodrigoVelasquez_RicardoGonzalez {
                 //aqui el menu
                 switch (resp) {
                     case 1:
-                        for (EVA ev : listaEVA) {
-                            System.out.println(ev);
+                        for (int i = 0; i < listaEVA.size() - 1; i++) {
+                            System.out.println(i + "=" + listaEVA.get(i));
                         }
                         break;
                     case 2:
-                        for (Angel ang : listaAngeles) {
-                            System.out.println(ang);
+                        for (int i = 0; i < listaAngeles.size() - 1; i++) {
+                            System.out.println(i + "=" + listaAngeles.get(i));
                         }
                         break;
                     case 3:
-
+                        int op = 0;
+                        try {
+                            do {
+                                System.out.println("CRUD DE PILOTOS \n"
+                                        + "1. Agregar Piloto \n"
+                                        + "2. Listar Pilotos \n"
+                                        + "3. Modificar Pilotos \n"
+                                        + "4. Eliminar Pilotos \n"
+                                        + "5. Salir \n");
+                                op = sc.nextInt();
+                                switch (op) {
+                                    case 1:
+                                        crear();
+                                        break;
+                                    case 2:
+                                        listar();
+                                        break;
+                                    case 3:
+                                        mod();
+                                        break;
+                                    case 4:
+                                        eliminar();
+                                        break;
+                                    default:
+                                        System.out.println("Valor no contiene opcion.");
+                                        break;
+                                }
+                            } while (op != 5);
+                        } catch (Exception e) {
+                            System.out.println("Error de valores ingresados en el menu.");
+                        }
                         break;
                     case 4:
                         do {
@@ -399,5 +478,76 @@ public class Lab3_RodrigoVelasquez_RicardoGonzalez {
             System.out.println("");
         }
         return matriz;
+    }
+
+    public static void crear() {
+        try {
+            System.out.println("Nombre del piloto: ");
+            String nombre = sc.next();
+            System.out.println("Edad del piloto: ");
+            int edad = sc.nextInt();
+            System.out.println("Ingerese un familiar cercano: ");
+            String familiar = sc.next();
+            System.out.println("Encargado del piloto: ");
+            String encargado = sc.next();
+            System.out.println("Escuela: ");
+            String escuela = sc.next();
+            System.out.println("Sincronizacion: ");
+            String sinc = sc.next();
+            System.out.println("EVA asignado: ");
+            String asig = sc.next();
+            p = new Piloto(nombre, edad, familiar, encargado, escuela, edad, asig);
+            listaPilotos.add(p);
+        } catch (Exception e) {
+            System.out.println("Error en los ingresos. Asegurese de ingresar valores correctos.");
+        }
+    }
+
+    public static void listar() {
+        for (int i = 0; i < listaPilotos.size(); i++) {
+            System.out.println(i + "=" + listaPilotos.get(i));
+        }
+    }
+
+    public static void mod() {
+        System.out.println("Eliga piloto a modificar.");
+        int selec;
+        try {
+            selec = sc.nextInt();
+            if (selec > listaPilotos.size() - 1 || selec < 0) {
+                System.out.println("Valor ingreasado no es valido.");
+            } else {
+                System.out.println("Nombre del piloto: ");
+                String nombre = sc.next();
+                System.out.println("Edad del piloto: ");
+                int edad = sc.nextInt();
+                System.out.println("Ingerese un familiar cercano: ");
+                String familiar = sc.next();
+                System.out.println("Encargado del piloto: ");
+                String encargado = sc.next();
+                System.out.println("Escuela: ");
+                String escuela = sc.next();
+                System.out.println("Sincronizacion: ");
+                String sinc = sc.next();
+                System.out.println("EVA asignado: ");
+                String asig = sc.next();
+                p = new Piloto(nombre, edad, familiar, encargado, escuela, edad, asig);
+                listaPilotos.remove(selec);
+                listaPilotos.add(p);
+                System.out.println("Modificacion completada.");
+            }
+        } catch (Exception e) {
+            System.out.println("Error en los ingresos. Asegurese de ingresar valores correctos.");
+        }
+    }
+
+    public static void eliminar() {
+        System.out.println("Piloto a eliminar.");
+        int elim = sc.nextInt();
+        try {
+            listaPilotos.remove(elim);
+        } catch (Exception e) {
+            System.out.println("No hay piloto a eliminar.");
+        }
     }
 }

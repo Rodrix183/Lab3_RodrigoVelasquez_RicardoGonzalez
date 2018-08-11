@@ -21,9 +21,12 @@ public class EVA00 extends EVA {
     
     public void Atacar(String [][] tokyo3, int posx, int posy, int movx, int movy) {
         String casilla;
-        if (tokyo3[movx][movy].equals("["+"-S-"+"] ") || tokyo3[movx][movy].equals("["+"-R-"+"] ") || tokyo3[movx][movy].equals("["+"-Z-"+"] ") || tokyo3[movx][movy].equals("["+"---"+"] ")) {
+        if (tokyo3[movx][movy].equals("["+"-S-"+"] ") || tokyo3[movx][movy].equals("["+"-R-"+"] ") || tokyo3[movx][movy].equals("["+"-Z-"+"] ")) {
             casilla = tokyo3[movx][movy];
         }else{
+            System.out.println("Blanco no valido.");
+        }
+        if (true) {
             
         }
         
